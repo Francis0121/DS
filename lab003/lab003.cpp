@@ -46,9 +46,20 @@ float Polynomial::Eval(float f)
 {
 	float e = 0.0;
 
-
-
-
+	for(int i=0; i< terms ; i++){
+		float theCoef = termArray[i].coef;
+		int theExp = termArray[i].exp;
+		if(!theExp){
+			e += theCoef;		
+		}else{
+			float mul = 1;
+			for(int j=0; j< theExp; j++){
+				mul *= f;	
+			}
+			mul *= theCoef;
+			e += mul;
+		}
+	}
 
 	return e;
 }
@@ -59,10 +70,21 @@ bool Polynomial::operator== (Polynomial &p)
 	if(this == &p)
 		return true;
 
+	if(terms != p.terms )
+		return false;		
 
-
-
-
+	int pos=0;
+	while(pos < terms){
+		if(termArray[pos].exp != p.termArray[pos].exp){
+			return false;
+		}else{
+			if(termArray[pos].coef != p.termArray[pos].coef){
+				return false;
+			}else{	
+				pos++;
+			}
+		}
+	}
 
 	return true;
 }
@@ -71,11 +93,28 @@ bool Polynomial::operator== (Polynomial &p)
 Polynomial Polynomial::Add(Polynomial &b)
 {// Return the sum, c,  of the polynomials *this and b
 	Polynomial c;
-/*	int aPos = 0, bPos=0;
+	int aPos = 0, bPos=0;
 	while((aPos < terms) && (bPos < b.terms)){
-		if((termArray[aPos].exp == b.temrArray[bPos].exp)	
+		if((termArray[aPos].exp == b.termArray[bPos].exp)){
+			float t = termArray[aPos].coef + b.termArray[bPos].coef;
+			if(t) c.NewTerm(t, termArray[aPos].exp);
+			aPos++; bPos++;
+		}else if((termArray[aPos].exp < b.termArray[bPos].exp)){
+			c.NewTerm(b.termArray[bPos].coef, b.termArray[bPos].exp);
+			bPos++;
+		}else{
+			c.NewTerm(termArray[aPos].coef, termArray[aPos].exp);
+			aPos++;
+		}
 	}
-*/
+	// add in remaining term of *this and b
+	for(; aPos < terms; aPos++){
+		c.NewTerm(termArray[aPos].coef, termArray[aPos].exp);	
+	}
+	for(; bPos < b.terms; bPos++){
+		c.NewTerm(b.termArray[bPos].coef, b.termArray[bPos].exp);
+	}
+	
 	return c;
 }		
 
