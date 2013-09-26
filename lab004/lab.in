@@ -1,0 +1,49 @@
+push 1
+push 2
+pop
+pop
+pop
+push 3
+pop
+push c
+push d
+push e
+pop
+push f
+push g
+push h
+push 7
+push g
+pop
+pop
+push k
+push L
+pop
+push M
+push 8
+push 9
+pop
+push Y
+pop
+push u
+pop
+push 4
+pop
+push 5
+push 6
+pop
+pop
+push Q
+push T
+pop
+push P
+push K
+push w
+pop
+pop
+push S
+pop
+pop
+push Y
+push M
+quit

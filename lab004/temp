@@ -1,0 +1,199 @@
+
+push 1
+Queue : 1 
+front=0, rear=1
+
+push 2
+Queue : 1 2 
+front=0, rear=2
+
+pop 
+Queue : 2 
+front=1, rear=2
+
+pop 
+Queue : 
+front=2, rear=2
+
+pop 
+Error Queue is empty. Cannot delete
+Queue : 
+front=2, rear=2
+
+push 3
+Queue : 3 
+front=2, rear=3
+
+pop 
+Queue : 
+front=3, rear=3
+
+push c
+Queue : c 
+front=3, rear=4
+
+push d
+Queue : c d 
+front=3, rear=5
+
+push e
+Queue : c d e 
+front=3, rear=6
+
+pop 
+Queue : d e 
+front=4, rear=6
+
+push f
+Queue : d e f 
+front=4, rear=0
+
+push g
+Queue : d e f g 
+front=4, rear=1
+
+push h
+Queue : d e f g h 
+front=4, rear=2
+
+push 7
+Queue : d e f g h 7 
+front=4, rear=3
+
+push g
+Error Queue is Full
+Queue : d e f g h 7 
+front=4, rear=3
+
+pop 
+Queue : e f g h 7 
+front=5, rear=3
+
+pop 
+Queue : f g h 7 
+front=6, rear=3
+
+push k
+Queue : f g h 7 k 
+front=6, rear=4
+
+push L
+Queue : f g h 7 k L 
+front=6, rear=5
+
+pop 
+Queue : g h 7 k L 
+front=0, rear=5
+
+push M
+Queue : g h 7 k L M 
+front=0, rear=6
+
+push 8
+Error Queue is Full
+Queue : g h 7 k L M 
+front=0, rear=6
+
+push 9
+Error Queue is Full
+Queue : g h 7 k L M 
+front=0, rear=6
+
+pop 
+Queue : h 7 k L M 
+front=1, rear=6
+
+push Y
+Queue : h 7 k L M Y 
+front=1, rear=0
+
+pop 
+Queue : 7 k L M Y 
+front=2, rear=0
+
+push u
+Queue : 7 k L M Y u 
+front=2, rear=1
+
+pop 
+Queue : k L M Y u 
+front=3, rear=1
+
+push 4
+Queue : k L M Y u 4 
+front=3, rear=2
+
+pop 
+Queue : L M Y u 4 
+front=4, rear=2
+
+push 5
+Queue : L M Y u 4 5 
+front=4, rear=3
+
+push 6
+Error Queue is Full
+Queue : L M Y u 4 5 
+front=4, rear=3
+
+pop 
+Queue : M Y u 4 5 
+front=5, rear=3
+
+pop 
+Queue : Y u 4 5 
+front=6, rear=3
+
+push Q
+Queue : Y u 4 5 Q 
+front=6, rear=4
+
+push T
+Queue : Y u 4 5 Q T 
+front=6, rear=5
+
+pop 
+Queue : u 4 5 Q T 
+front=0, rear=5
+
+push P
+Queue : u 4 5 Q T P 
+front=0, rear=6
+
+push K
+Error Queue is Full
+Queue : u 4 5 Q T P 
+front=0, rear=6
+
+push w
+Error Queue is Full
+Queue : u 4 5 Q T P 
+front=0, rear=6
+
+pop 
+Queue : 4 5 Q T P 
+front=1, rear=6
+
+pop 
+Queue : 5 Q T P 
+front=2, rear=6
+
+push S
+Queue : 5 Q T P S 
+front=2, rear=0
+
+pop 
+Queue : Q T P S 
+front=3, rear=0
+
+pop 
+Queue : T P S 
+front=4, rear=0
+
+push Y
+Queue : T P S Y 
+front=4, rear=1
+
+push M
+Queue : T P S Y M 
+front=4, rear=2
