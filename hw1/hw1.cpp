@@ -4,6 +4,58 @@
 
 #include "hw1.h"
 
+class Priority{
+private :
+public:
+	int ICP(const char &ch){
+		int number = -1;
+		switch(ch){
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9':
+			number = 0;
+			break;
+		case '(':
+			number = 1;
+			break;
+		case '*':
+		case '/':
+			number = 2;
+			break;
+		case '+':
+		case '-':
+			number = 3;
+			break;
+		}
+		return number;
+	}
+
+	int ISP(const char &ch){
+		int number = -1;
+		switch(ch){
+		case '*':
+		case '/':
+			number = 2;
+			break;
+		case '+':
+		case '-':
+			number = 3;
+			break;
+			case '(':
+			number = 4;
+			break;
+		}
+		return number;
+	}
+};
+
 template <class T>
 Stack<T>::Stack(int stackCapacity) : capacity (stackCapacity){
 	if(capacity < 1) throw "Stack Capacity must be > 0";
@@ -77,45 +129,46 @@ void ToPostFix(char *indata, char *postfix)
 	// now transform the infix into postfix
 	Stack<char> pst;
 
+	int out = 0;
 	for(int i = 0; i < len; i++)
 	{
 		char token = indata[i];
 		cout << "Token " << token << endl;
-		cout << "Priority "<< priority(token);
+		Priority p = Priority();
+		if(token == '#'){
+			break;
+		}else if(token == ')'){
+			while(true){
+				char top = pst.Top();
+				if(top != '('){
+					postfix[out++] = top;
+					pst.Pop();
+				}else{
+					pst.Pop();
+					break;
+				}
+			}
+		}else{
+			int icp = p.ICP(token);
+			if(icp == 0){
+				postfix[out++] = token;
+			}else{
+				char top = pst.Top();
+				int isp = p.ISP(top);
+				if(icp >=  isp){
+					postfix[out++] = top;
+					pst.Pop();
+				}else{
+					pst.Push(token);
+				}
+			}
+		}
 
 		pst.Show();
 	}
 }
-	
-int priorirty(const char &ch){
-	int number = -1;
-	switch(ch){
-	case '0':
-	case '1':
-	case '2':
-	case '3':
-	case '4':
-	case '5':
-	case '6':
-	case '7':
-	case '8':
-	case '9':
-		number = 0;
-		break;
-	case '(':
-		number = 1;
-		break;
-	case '*':
-	case '/':
-		number = 2;
-		break;
-	case '+':
-	case '-':
-		number = 3;
-		break;
-	}
-	return number;
-}
+
+
 
 // Template Class int, double Type Use
 template class Stack<int>;
