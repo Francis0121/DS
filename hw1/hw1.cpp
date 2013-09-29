@@ -104,19 +104,46 @@ void Stack<T>::Pop(){
 
 
 
-double PostfixEval(char *ps)
+double PostfixEval(char *postfix)
 {
 	double val = 0;
-	int len = strlen(ps);
+	int len = strlen(postfix);
 
-	Stack<double> est;
+	Stack<double> stack = Stack<double>();
 
-	for(int i = 0; i < len; i++)
-	{
+	Priority p = Priority();
+	for(int i = 0; i < len; i++){
+		char token = postfix[i];	
+		if( p.ICP(token) == 0 ){
+			stack.Push(atoi(&token));
+		}else{
+			double operand1 = stack.Top();
+			stack.Pop();
+			double operand2 = stack.Top();
+			stack.Pop();
 
+			double calculate = 0;
+			switch(token){
+			case '+':
+				calculate = operand2 + operand1;
+				break;
+			case '-':
+				calculate = operand2 - operand1;
+				break;
+			case '/':
+				calculate = operand2 / operand1;
+				break;
+			case '*':
+				calculate = operand2 * operand1;
+				break;
+			}
 
-
+			stack.Push(calculate);
+		}
 	}
+
+	val = stack.Top();
+	stack.Pop();
 
 	return val;
 }
@@ -127,7 +154,7 @@ void ToPostFix(char *indata, char *postfix)
 	int len = strlen(indata);
 
 	// now transform the infix into postfix
-	Stack<char> pst;
+	Stack<char> stack = Stack<char>();
 
 	int out = 0;
 	for(int i = 0; i < len; i++)
@@ -141,12 +168,12 @@ void ToPostFix(char *indata, char *postfix)
 		}else if(token == ')'){
 			// ')' 인 경우는 ( 이 나올 때 까지 postfix에 입력후 pop
 			while(true){
-				char top = pst.Top();
+				char top = stack.Top();
 				if(top != '('){
 					postfix[out++] = top;
-					pst.Pop();
+					stack.Pop();
 				}else{
-					pst.Pop();
+					stack.Pop();
 					break;
 				}
 			}
@@ -158,22 +185,33 @@ void ToPostFix(char *indata, char *postfix)
 				postfix[out++] = token;
 			}else{
 				// 연산자 우선순위에 따라서 push 하거나 같은 순위일경우는 pop
-				char top = pst.Top();
-				int isp = p.ISP(top);
-				if(icp <  isp){
-					pst.Push(token);
-				}else if(icp == isp){
-					postfix[out++] = top;
-					pst.Pop();
-					pst.Push(token);
+				if(stack.IsEmpty()){
+					stack.Push(token);
 				}else{
-					postfix[out++] = token;
+					char top = stack.Top();
+					int isp = p.ISP(top);
+					if(icp <  isp){
+						stack.Push(token);
+					}else if(icp == isp){
+						postfix[out++] = top;
+						stack.Pop();
+						stack.Push(token);
+					}else{
+						postfix[out++] = token;
+					}
 				}
 			}
 		}
-
-		pst.Show();
+		stack.Show();
 	}
+
+	while(!stack.IsEmpty()){
+		char top = stack.Top();
+		postfix[out++] = top;
+		stack.Pop();
+	}
+
+	postfix[out] = 0;
 }
 
 
