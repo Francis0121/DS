@@ -136,8 +136,10 @@ void ToPostFix(char *indata, char *postfix)
 		cout << "Token " << token << endl;
 		Priority p = Priority();
 		if(token == '#'){
+			// '#' 인 경우는 마침
 			break;
 		}else if(token == ')'){
+			// ')' 인 경우는 ( 이 나올 때 까지 postfix에 입력후 pop
 			while(true){
 				char top = pst.Top();
 				if(top != '('){
@@ -149,17 +151,23 @@ void ToPostFix(char *indata, char *postfix)
 				}
 			}
 		}else{
+			// '#', ')' 이 아닌 모든 경우
 			int icp = p.ICP(token);
+			// 숫자인 경우 postfix 입력
 			if(icp == 0){
 				postfix[out++] = token;
 			}else{
+				// 연산자 우선순위에 따라서 push 하거나 같은 순위일경우는 pop
 				char top = pst.Top();
 				int isp = p.ISP(top);
-				if(icp >=  isp){
+				if(icp <  isp){
+					pst.Push(token);
+				}else if(icp == isp){
 					postfix[out++] = top;
 					pst.Pop();
-				}else{
 					pst.Push(token);
+				}else{
+					postfix[out++] = token;
 				}
 			}
 		}
