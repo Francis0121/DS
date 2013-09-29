@@ -23,15 +23,15 @@ Token *
 Token 2
   Stack : * 
 Token -
-  Stack : * 
+  Stack : - 
 Token 3
-  Stack : * 
+  Stack : - 
 Token /
-  Stack : / 
+  Stack : - / 
 Token 8
-  Stack : / 
-Postfix expression : 5 2 - 3 * 8 / 
-Evaluation : 1.125
+  Stack : - / 
+Postfix expression : 5 2 * 3 8 / - 
+Evaluation : 9.625
 
 Token 3
   Stack : 
@@ -50,9 +50,9 @@ Token *
 Token 3
   Stack : * ( + * 
 Token -
-  Stack : * ( + * 
+  Stack : * ( + - 
 Token 5
-  Stack : * ( + * 
+  Stack : * ( + - 
 Token )
   Stack : * 
 Token /
@@ -64,27 +64,27 @@ Token *
 Token 3
   Stack : * 
 Token +
-  Stack : * 
+  Stack : + 
 Token 4
-  Stack : * 
+  Stack : + 
 Token -
-  Stack : * 
+  Stack : - 
 Token (
-  Stack : * ( 
+  Stack : - ( 
 Token 5
-  Stack : * ( 
+  Stack : - ( 
 Token +
-  Stack : * ( + 
+  Stack : - ( + 
 Token 3
-  Stack : * ( + 
+  Stack : - ( + 
 Token )
-  Stack : * 
+  Stack : - 
 Token +
-  Stack : * 
+  Stack : + 
 Token 2
-  Stack : * 
-Postfix expression : 3 2 4 3 - 5 * + * 2 / 3 + 4 - 5 3 + + 2 * 
-Evaluation : 35
+  Stack : + 
+Postfix expression : 3 2 4 3 * 5 - + * 2 / 3 * 4 + 5 3 + - 2 + 
+Evaluation : 38.5
 
 Token (
   Stack : ( 
@@ -107,9 +107,9 @@ Token *
 Token 2
   Stack : ( * 
 Token -
-  Stack : ( * 
+  Stack : ( - 
 Token 5
-  Stack : ( * 
+  Stack : ( - 
 Token )
   Stack : 
 Token /
@@ -117,27 +117,27 @@ Token /
 Token 2
   Stack : / 
 Token -
-  Stack : / 
+  Stack : - 
 Token 3
-  Stack : / 
+  Stack : - 
 Token +
-  Stack : / 
+  Stack : + 
 Token 9
-  Stack : / 
+  Stack : + 
 Token *
-  Stack : * 
+  Stack : + * 
 Token 7
-  Stack : * 
+  Stack : + * 
 Token -
-  Stack : * 
+  Stack : + - 
 Token 3
-  Stack : * 
+  Stack : + - 
 Token *
-  Stack : * 
+  Stack : + - * 
 Token 5
-  Stack : * 
-Postfix expression : 6 8 4 + * 2 - 5 * 2 - 3 + 9 / 7 - 3 * 5 * 
-Evaluation : 480
+  Stack : + - * 
+Postfix expression : 6 8 4 + * 2 * 5 - 2 / 3 - 9 7 * 3 5 * - + 
+Evaluation : 114.5
 
 Token (
   Stack : ( 
@@ -166,21 +166,21 @@ Token /
 Token 5
   Stack : ( ( / 
 Token +
-  Stack : ( ( / 
+  Stack : ( ( + 
 Token (
-  Stack : ( ( / ( 
+  Stack : ( ( + ( 
 Token 4
-  Stack : ( ( / ( 
+  Stack : ( ( + ( 
 Token -
-  Stack : ( ( / ( - 
+  Stack : ( ( + ( - 
 Token 7
-  Stack : ( ( / ( - 
+  Stack : ( ( + ( - 
 Token )
-  Stack : ( ( / 
+  Stack : ( ( + 
 Token /
-  Stack : ( ( / 
+  Stack : ( ( + / 
 Token 5
-  Stack : ( ( / 
+  Stack : ( ( + / 
 Token )
   Stack : ( 
 Token *
@@ -188,11 +188,11 @@ Token *
 Token 2
   Stack : ( * 
 Token +
-  Stack : ( * 
+  Stack : ( + 
 Token 4
-  Stack : ( * 
+  Stack : ( + 
 Token )
   Stack : 
-Postfix expression : 2 3 + 6 8 * - 5 + 4 7 - / 5 / 2 + 4 * 
-Evaluation : 18.1333
-The results are 18.1333 480 35 1.125 7 1 
+Postfix expression : 2 3 + 6 8 * - 5 / 4 7 - 5 / + 2 * 4 + 
+Evaluation : -14.4
+The results are -14.4 114.5 38.5 9.625 7 1 
