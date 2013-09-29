@@ -190,14 +190,12 @@ void ToPostFix(char *indata, char *postfix)
 				}else{
 					char top = stack.Top();
 					int isp = p.ISP(top);
-					if(icp <  isp){
-						stack.Push(token);
-					}else if(icp == isp){
+					if(icp >= isp){
 						postfix[out++] = top;
 						stack.Pop();
 						stack.Push(token);
 					}else{
-						postfix[out++] = token;
+						stack.Push(token);
 					}
 				}
 			}
