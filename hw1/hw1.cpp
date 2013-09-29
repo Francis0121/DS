@@ -185,19 +185,18 @@ void ToPostFix(char *indata, char *postfix)
 				postfix[out++] = token;
 			}else{
 				// 연산자 우선순위에 따라서 push 하거나 같은 순위일경우는 pop
-				if(stack.IsEmpty()){
-					stack.Push(token);
-				}else{
+				while(1){
+					if(stack.IsEmpty()) break;
+
 					char top = stack.Top();
 					int isp = p.ISP(top);
 					if(icp >= isp){
 						postfix[out++] = top;
 						stack.Pop();
-						stack.Push(token);
-					}else{
-						stack.Push(token);
-					}
+					}else
+						break;
 				}
+				stack.Push(token);
 			}
 		}
 		stack.Show();
