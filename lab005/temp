@@ -1,0 +1,196 @@
+CMD : ins 1
+List : 1 
+List has 1 elements
+
+CMD : del 1
+List : 
+List has 0 elements
+
+CMD : ins 1
+List : 1 
+List has 1 elements
+
+CMD : ins 2
+List : 2 1 
+List has 2 elements
+
+CMD : del 2
+List : 1 
+List has 1 elements
+
+CMD : del 1
+List : 
+List has 0 elements
+
+CMD : ins 1
+List : 1 
+List has 1 elements
+
+CMD : ins 2
+List : 2 1 
+List has 2 elements
+
+CMD : ins 3
+List : 3 2 1 
+List has 3 elements
+
+CMD : del 3
+List : 2 1 
+List has 2 elements
+
+CMD : ins 3
+List : 3 2 1 
+List has 3 elements
+
+CMD : ins 4
+List : 4 3 2 1 
+List has 4 elements
+
+CMD : ins 5
+List : 5 4 3 2 1 
+List has 5 elements
+
+CMD : ins 6
+List : 6 5 4 3 2 1 
+List has 6 elements
+
+CMD : ins 7
+List : 7 6 5 4 3 2 1 
+List has 7 elements
+
+CMD : ins 9
+List : 9 7 6 5 4 3 2 1 
+List has 8 elements
+
+CMD : del 1
+List : 9 7 6 5 4 3 2 
+List has 7 elements
+
+CMD : del 4
+List : 9 7 6 5 3 2 
+List has 6 elements
+
+CMD : del 2
+List : 9 7 6 5 3 
+List has 5 elements
+
+CMD : del 3
+List : 9 7 6 5 
+List has 4 elements
+
+CMD : ins 5
+List : 5 9 7 6 5 
+List has 5 elements
+
+CMD : ins 6
+List : 6 5 9 7 6 5 
+List has 6 elements
+
+CMD : del 6
+List : 5 9 7 6 5 
+List has 5 elements
+
+CMD : del 5
+List : 9 7 6 5 
+List has 4 elements
+
+CMD : del 6
+List : 9 7 5 
+List has 3 elements
+
+CMD : ins 2
+List : 2 9 7 5 
+List has 4 elements
+
+CMD : ins 3
+List : 3 2 9 7 5 
+List has 5 elements
+
+CMD : del 3
+List : 2 9 7 5 
+List has 4 elements
+
+CMD : ins 3
+List : 3 2 9 7 5 
+List has 5 elements
+
+CMD : ins 4
+List : 4 3 2 9 7 5 
+List has 6 elements
+
+CMD : del 2
+List : 4 3 9 7 5 
+List has 5 elements
+
+CMD : del 1
+Cannot delete item 1
+List : 4 3 9 7 5 
+List has 5 elements
+
+CMD : ins 2
+List : 2 4 3 9 7 5 
+List has 6 elements
+
+CMD : ins 3
+List : 3 2 4 3 9 7 5 
+List has 7 elements
+
+CMD : del 3
+List : 2 4 3 9 7 5 
+List has 6 elements
+
+CMD : ins 3
+List : 3 2 4 3 9 7 5 
+List has 7 elements
+
+CMD : ins 4
+List : 4 3 2 4 3 9 7 5 
+List has 8 elements
+
+CMD : ins 5
+List : 5 4 3 2 4 3 9 7 5 
+List has 9 elements
+
+CMD : ins 6
+List : 6 5 4 3 2 4 3 9 7 5 
+List has 10 elements
+
+CMD : ins 7
+List : 7 6 5 4 3 2 4 3 9 7 5 
+List has 11 elements
+
+CMD : ins 9
+List : 9 7 6 5 4 3 2 4 3 9 7 5 
+List has 12 elements
+
+CMD : del 1
+Cannot delete item 1
+List : 9 7 6 5 4 3 2 4 3 9 7 5 
+List has 12 elements
+
+CMD : del 1
+Cannot delete item 1
+List : 9 7 6 5 4 3 2 4 3 9 7 5 
+List has 12 elements
+
+CMD : del 5
+List : 9 7 6 4 3 2 4 3 9 7 5 
+List has 11 elements
+
+CMD : del 5
+List : 9 7 6 4 3 2 4 3 9 7 
+List has 10 elements
+
+CMD : ins 7
+List : 7 9 7 6 4 3 2 4 3 9 7 
+List has 11 elements
+
+CMD : ins 9
+List : 9 7 9 7 6 4 3 2 4 3 9 7 
+List has 12 elements
+
+CMD : del 1
+Cannot delete item 1
+List : 9 7 9 7 6 4 3 2 4 3 9 7 
+List has 12 elements
+
