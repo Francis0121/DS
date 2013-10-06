@@ -16,7 +16,7 @@ bool CircularList<T>::Delete(const T & e){ // delete an element from the positio
 	ChainNode<T>* currentNode = head->link;
 
 	int index = 0;
-	while(currentNode != NULL && currentNode->data != e){
+	while(currentNode != head && currentNode->data != e){
 		currentNode = currentNode->link;
 		index++;
 	}
@@ -34,11 +34,11 @@ bool CircularList<T>::Delete(const T & e){ // delete an element from the positio
 		}else{
 			ChainNode<T>* p = head->link;
 			for(int i=0; i<index-1;i++){
-				if(p == 0)
+				if(p == head)
 					return false;
 				p = p->link;
 			}
-			if( (p == 0) || (p->link ==0) )
+			if( (p == head) || (p->link == head) )
 				return false;
 			deleteNode = p->link;
 			p->link = p->link->link;
