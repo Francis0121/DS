@@ -75,7 +75,9 @@ bool  BSTree<T>::Delete(T kv)
 		if(parent->left){
 			degree+=1;
 			pleft = true;
-		}else if(parent->right){
+		}
+
+		if(parent->right){
 			degree+=1;
 			pright=true;
 		}
