@@ -116,7 +116,7 @@ bool  BSTree<T>::Delete(T kv)
 				grandchange = change;
 				change=change->right;
 			}
-			parent->data.key = change->data.key;
+			parent->data = change->data;
 		
 			if(change->left){
 				grandchange->right=change->left;
