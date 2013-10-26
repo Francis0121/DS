@@ -83,7 +83,7 @@ bool  BSTree<T>::Delete(T kv)
 		switch (degree)
 		{
 		case 0:
-			if(left)
+			if(left){
 				grandparent->left = NULL;
 			}else if(right){
 				grandparent->right = NULL;
