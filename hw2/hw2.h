@@ -1,7 +1,7 @@
 // HW 2 : Binary Search Tree
 
 #include<iostream>
-#include<string>
+
 using namespace std;
 
 // Item Class
