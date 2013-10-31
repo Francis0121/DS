@@ -1,5 +1,5 @@
 // Lab 007 
-// Name : 
+// Name : 김성근
 // Student ID : 20093267
 
 #include "lab007.h"
