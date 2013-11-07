@@ -17,12 +17,12 @@ void Graph::Dfs(int v){
 		visited[v] = 1;
 	}
 
-	for(int i=v; i<numofnodes; i++){
+	for(int i=0; i<numofnodes; i++){
 		if(Cost[v][i] != 0){
 			if(visited[i] == 0){
 				cout << v << "-" << i << " : " << Cost[v][i] << endl;
+				Dfs(i);
 			}
-			Dfs(i);
 		}
 	}
 }
