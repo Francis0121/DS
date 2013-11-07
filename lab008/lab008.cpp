@@ -1,6 +1,6 @@
 // Lab 008 
-// Name :
-// Student ID :
+// Name : 김성근
+// Student ID : 20093267
 
 #include "lab008.h"
 
