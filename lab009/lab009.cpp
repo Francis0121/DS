@@ -1,5 +1,5 @@
 // Lab 009 
-// Name : 
+// Name : Kim Sung geun 
 // Student ID : 20093267
 
 #include "lab009.h"
@@ -9,7 +9,6 @@ void Graph::Edge(int e1, int e2, int cost){
 }
 
 void Graph::OutPath(int i){	
-	// p[i] i까지 가능 경로의 전 노드 임으로 recursive 하게 구하면된다.
 	if(p[i] == -1){
 		cout << i << " ";
 		return;
