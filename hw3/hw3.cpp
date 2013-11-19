@@ -29,12 +29,12 @@ void  QuickSort<T>::QSort(int s, int e){
 		p = s;
 	}
 
-	if( (middle <= leftmost && middle >= rightmost ) || (middle <= rightmost && middle >= leftmost ) ){
-		p = m;
-	}
-
 	if( (rightmost <= middle && rightmost >= leftmost ) || (rightmost <= leftmost && rightmost >= middle ) ){
 		p = e;
+	}
+
+	if( (middle <= leftmost && middle >= rightmost ) || (middle <= rightmost && middle >= leftmost ) ){
+		p = m;
 	}
 	
 	Swap(s, p);
