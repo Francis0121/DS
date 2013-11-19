@@ -1,5 +1,5 @@
 // HW 3
-// Name :
+// Name : Kim Sung Geun`
 // Student ID : 20093267
 
 #include "hw3.h"
