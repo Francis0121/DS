@@ -14,8 +14,11 @@ void  HeapSort<T>::Adjust(const int root, int n){
 	int child = 2*root;
 
 	while(child <= n){
-		if(	(child < n) && ( heapArr[child] > heapArr[child+1]) )
-			child++;
+		if( child < n ){
+			if( heapArr[child] > heapArr[child+1]){
+				child+=1;
+			}
+		}
 		if( e <= heapArr[child] )
 			break;
 		else{
